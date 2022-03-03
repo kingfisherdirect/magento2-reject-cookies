@@ -23,7 +23,7 @@ if ($cookieHelper->isCookieRestrictionModeEnabled()): ?>
                 )) ?>
                 </span>
                 <?php /* Changed wording */ ?>
-                <?= $block->escapeHtml(__('View <a href="%1">Privacy Policy</a>.', $block->getPrivacyPolicyLink()), ['a']) ?>
+                <?= $block->escapeHtml(__('View <a href="%1">Privacy Policy</a>.', $block->getUrl("cookie-policy")), ['a']) ?>
             </p>
             <div class="actions">
                 <button id="btn-cookie-reject" class="action reject">
