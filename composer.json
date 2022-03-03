@@ -1,0 +1,21 @@
+{
+    "name": "kingfisherdirect/magento2-reject-cookies",
+    "description": "A Magento 2 module that allows rejecting cookies",
+    "type": "magento2-module",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Kingfisherdirect\\Magento2RejectCookies\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Kamil",
+            "email": "kamil@kingfisherdirect.co.uk"
+        }
+    ],
+    "require": {}
+}
