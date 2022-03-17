@@ -14,24 +14,6 @@ define([
      * @param {Object} config
      */
     return function (config) {
-        var allowCookies = false,
-            allowedCookies,
-            allowedWebsites;
-
-        if (config.isCookieRestrictionModeEnabled) {
-            allowedCookies = $.mage.cookies.get(config.cookieName);
-
-            if (allowedCookies !== null) {
-                allowedWebsites = JSON.parse(allowedCookies);
-
-                if (allowedWebsites[config.currentWebsite] === 1) {
-                    allowCookies = true;
-                }
-            }
-        } else {
-            allowCookies = true;
-        }
-
         (function (i, s, o, g, r, a, m) {
             i.GoogleAnalyticsObject = r;
             i[r] = i[r] || function () {
@@ -45,7 +27,14 @@ define([
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
         // Process page info
-        ga('create', config.pageTrackingData.accountId, allowCookies ? 'auto' : { storage: 'none' });
+        ga('create', config.pageTrackingData.accountId, {
+            storage: 'none',
+            clientId: config.pageTrackingData.clientId
+        });
+
+        if (config.pageTrackingData.userId) {
+            ga('set', 'userId', config.pageTrackingData.userId)
+        }
 
         if (config.pageTrackingData.isAnonymizedIpActive) {
             ga('set', 'anonymizeIp', true);
