@@ -71,6 +71,7 @@ define([
         if (config.ordersTrackingData.hasOwnProperty('currency')) {
             var purchaseObject = config.ordersTrackingData.orders[0];
             purchaseObject['items'] = config.ordersTrackingData.products;
+            purchaseObject['currency'] = config.ordersTrackingData.currency;
             gtag('event', 'purchase', purchaseObject);
         }
     }
