@@ -40,7 +40,6 @@ define([
 
             gtag('consent', 'default', {
               'ad_storage': 'denied',
-              'analytics_storage': 'denied'
             });
 
             $(document).on('user:allowed:save:cookie', grantConsent);
@@ -78,8 +77,7 @@ define([
 
     function grantConsent () {
         gtag('consent', 'default', {
-          'ad_storage': 'granted',
-          'analytics_storage': 'granted'
+          'ad_storage': 'granted'
         });
 
         $(document).off('user:allowed:save:cookie', grantConsent);
